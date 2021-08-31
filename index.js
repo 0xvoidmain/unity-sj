@@ -10,14 +10,14 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH, OPTIONS')
   res.header('Access-Control-Allow-Headers', 'Authorization, Origin, X-Requested-With, Content-Type, Accept')
-  if (req.url.lastIndexOf('wasm.br') == req.url.length - 7) {
+  if (req.url.lastIndexOf('wasm.br') != -1) {
     res.header('Content-Type', 'application/wasm')
     res.header('Content-Encoding', 'br')
   }
-  else if (req.url.lastIndexOf('.br') == req.url.length - 3) {
+  else if (req.url.lastIndexOf('.br') != -1) {
     res.header('Content-Encoding', 'br')
   }
-  else if (req.url.lastIndexOf('.gz') == req.url.length - 3) {
+  else if (req.url.lastIndexOf('.gz') != -1) {
     res.header('Content-Encoding', 'gzip')
   }
   if (req.method === 'OPTIONS') {
