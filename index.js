@@ -17,6 +17,9 @@ app.use(function(req, res, next) {
   else if (req.url.lastIndexOf('.br') == req.url.length - 3) {
     res.header('Content-Encoding', 'br')
   }
+  else if (req.url.lastIndexOf('.gz') == req.url.length - 3) {
+    res.header('Content-Encoding', 'gzip')
+  }
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200)
   }
